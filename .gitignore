@@ -1,0 +1,107 @@
+.idea
+adversarial_crypto
+adversarial_text
+adv_imagenet_models
+astronet
+attention_ocr
+audioset
+autoencoder
+brain_coder
+cognitive_mapping_and_planning
+compression
+deeplab
+deep_speech
+delf
+differential_privacy
+domain_adaptation
+fivo
+gan
+global_objectives
+im2txt
+inception
+learned_optimizer
+learning_to_remember_rare_events
+learning_unsupervised_learning
+lexnet_nc
+lfads
+lm_1b
+lm_commonsense
+marco
+maskgan
+minigo
+morph_net
+namignizer
+neural_gpu
+neural_programmer
+next_frame_prediction
+pcl_rl
+ptn
+pycocotools
+qa_kg
+README.md
+real_nvp
+rebar
+resnet
+result
+setup.py
+skip_thoughts
+street
+swivel
+syntaxnet
+tcn
+tensorrt
+textsum
+transformer
+vid2depth
+video_prediction
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+.hypothesis/
+
+# Translations
+*.mo
+*.pot
