@@ -1,14 +1,12 @@
 # tf object detection notes
 
 ## Links
----
 
 - [Home](https://github.com/tensorflow/models/tree/master/research)
 - [Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md)
 - [Quick Start: Training a pet detector](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/running_pets.md)
 
 ## Training On Your Dataset
----
 
 ### Running Locally Steps
 
