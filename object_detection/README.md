@@ -2,11 +2,15 @@
 
 ## Links
 
+---
+
 - [Home](https://github.com/tensorflow/models/tree/master/research)
 - [Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md)
 - [Quick Start: Training a pet detector](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/running_pets.md)
 
 ## Training On Your Dataset
+
+---
 
 ### Running Locally Steps
 
@@ -15,7 +19,7 @@
 2. Configuring the Object Detection Training Pipeline  
   https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/configuring_jobs.md
 3. Run Training
-    ```
+    ```bash
     # From the tensorflow/models/research/ directory
     python object_detection/train.py \
         --logtostderr \
@@ -24,7 +28,7 @@
     ```
     By default, the training job will run indefinitely until the user kills it.
 4. Run Evaluation
-    ```
+    ```bash
     # From the tensorflow/models/research/ directory
     python object_detection/eval.py \
         --logtostderr \
@@ -36,7 +40,7 @@
 ### Preparing Inputs
 
 1. Convert tfrecord file
-    ```
+    ```bash
     # From tensorflow/models/research/
     tar -xvf VOCtrainval_11-May-2012.tar
     python object_detection/dataset_tools/create_pascal_tf_record.py \
@@ -48,13 +52,13 @@
         --data_dir=VOCdevkit --year=VOC2012 --set=val \
         --output_path=pascal_val.record
     ```
-2. Dataset Requirements 
+2. Dataset Requirements
     - An RGB image for the dataset encoded as jpeg or png.
     - A list of bounding boxes for the image. Each bounding box should contain:
         1. A bounding box coordinates (with origin in top left corner) defined by 4 floating point numbers [ymin, xmin, ymax, xmax]. Note that we store the normalized coordinates (x / width, y / height) in the TFRecord dataset.
         2. The class of the object in the bounding box.
 3. Dataset Structure
-    ```
+    ```txt
     cowface     // 所有类别的图片都放这个目录，如dog，cat
     ├── Annotations   // 所有xml都放这里，xml里面有类别信息
     │   ├── 1.xml
@@ -84,7 +88,7 @@
 
 ### Recommended Directory Structure for Training and Evaluation
 
-```
+```txt
 +data
   -label_map file
   -train TFRecord file
@@ -95,5 +99,3 @@
     +train
     +eval
 ```
-
-

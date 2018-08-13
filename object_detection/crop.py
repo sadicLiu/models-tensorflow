@@ -5,7 +5,7 @@ import numpy as np
 import tensorflow as tf
 from PIL import Image
 from matplotlib import pyplot as plt
-import math
+
 from utils import visualization_utils as vis_util
 
 if tf.__version__ < '1.4.0':
@@ -44,7 +44,8 @@ def load_image_into_numpy_array(image):
 
 
 TEST_IMAGE_PATHS_DOG = [os.path.join('/home/liuhy/Pictures', 'dog{}.jpg'.format(i)) for i in range(1, 3)]
-TEST_IMAGE_PATHS = TEST_IMAGE_PATHS_DOG
+# TEST_IMAGE_PATHS = TEST_IMAGE_PATHS_DOG
+TEST_IMAGE_PATHS = ['/home/liuhy/Pictures/test.png']
 
 
 def run_inference_for_single_image(image, graph):
@@ -63,19 +64,18 @@ def run_inference_for_single_image(image, graph):
 
             # Run inference
             output_dict = sess.run(tensor_dict, feed_dict={image_tensor: image})
+            print("output dict: ", output_dict)
+
 
             # all outputs are float32 numpy arrays, so convert types as appropriate
             output_dict['num_detections'] = int(output_dict['num_detections'][0])
             output_dict['detection_classes'] = output_dict[
                 'detection_classes'][0].astype(np.uint8)
+            # print("before: ", output_dict['detection_boxes'])
             output_dict['detection_boxes'] = output_dict['detection_boxes'][0]
+            # print("after: ", output_dict['detection_boxes'] )
             output_dict['detection_scores'] = output_dict['detection_scores'][0]
     return output_dict
-
-
-# TODO
-def run_inference_batch(images, graph):
-    pass
 
 
 def process_single_image():
@@ -84,7 +84,7 @@ def process_single_image():
         start_time = time()
         image = Image.open(image_path)
 
-        # the array based representation of the image will be used later in order to prepare the
+        # The array based representation of the image will be used later in order to prepare the
         # result image with boxes and labels on it.
         image_np = load_image_into_numpy_array(image)
 
@@ -92,7 +92,7 @@ def process_single_image():
         image_np_expanded = np.expand_dims(image_np, axis=0)
 
         # output_dict = run_inference_for_single_image(image_np, detection_graph)
-        output_dict = run_inference_batch(image_np_expanded, detection_graph)
+        output_dict = run_inference_for_single_image(image_np_expanded, detection_graph)
 
         # Visualization of the results of a detection.
         vis_util.visualize_boxes_and_labels_on_image_array(
